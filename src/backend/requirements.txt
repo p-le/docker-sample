@@ -10,6 +10,7 @@ itsdangerous==1.1.0
 Jinja2==2.11.2
 MarkupSafe==1.1.1
 pytz==2020.4
+redis==3.5.3
 requests==2.25.0
 six==1.15.0
 spotipy==2.16.1
