@@ -1,0 +1,19 @@
+version: '3'
+services:
+  demo-cache:
+    container_name: demo-cache
+    image: redis:6.0.9
+  demo-backend:
+    container_name: demo-backend
+    build:
+      context: ./src/backend
+      dockerfile: ./Dockerfile
+    environment: 
+      - SPOTIPY_CLIENT_ID=${SPOTIPY_CLIENT_ID}
+      - SPOTIPY_CLIENT_SECRET=${SPOTIPY_CLIENT_SECRET}
+      - REDIS_HOST=demo-cache
+      - PORT=9000
+    ports:
+      - "9000:9000"
+    depends_on: 
+      - demo-cache
